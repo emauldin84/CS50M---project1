@@ -6,7 +6,7 @@ import ButtonsContainer from './components/ButtonsContainer'
 import vibrate from './utils/vibrate'
 
 const App = () => {
-  const [mins, setMins] = useState(1)
+  const [mins, setMins] = useState(25)
   const [secs, setSecs] = useState(0)
   const [working, setWorking] = useState(true)
   const [timeUp, setTimeUp] = useState(false)
@@ -18,7 +18,7 @@ const App = () => {
     }
     if (secs <= 0 && mins === 0 && working){
       // clearInterval(this.timer)
-      setMins(1)
+      setMins(5)
       setSecs(0)
       setWorking(false)
       vibrate()
@@ -37,7 +37,7 @@ const App = () => {
   const handleStartTimer = () => {
     this.timer = setInterval(() => {
       setSecs(currSecs => currSecs-1)
-    }, 100)
+    }, 1000)
   }
 
   const handlePauseTimer = () => {
@@ -45,7 +45,7 @@ const App = () => {
   }
 
   const handleResetTime = () => {
-    setMins(1)
+    setMins(25)
     setSecs(0)
     setWorking(true)
   }
